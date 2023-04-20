@@ -4,6 +4,11 @@ body {
     font-family: Lato, sans-serif;
 }
 
+.container {
+    width: 500px;
+    margin: 0 auto;
+}
+
 .button {
     background: none;
     border: 0px;
@@ -15,7 +20,7 @@ body {
 }
 
 .button:hover {
-    color: #3a3A3a;
+    color: #3a3a3a;
 }
 
 .title {
@@ -47,20 +52,11 @@ body {
 }
 
 .header {
-    width: 500px;
-    margin: 0 auto;
     text-align: right;
+    font-family: fantasy, cursive;
 }
 .header__image {
     width: 100%;
-}
-.header__info {
-    font-family: fantasy, cursive;
-}
-
-.main {
-    width: 500px;
-    margin: 0 auto;
 }
 
 .task-row__body {
@@ -71,10 +67,6 @@ body {
 
 .task-row__input {
     width: 100%;
-}
-
-.task-row-wrapper {
-    display: flex;
 }
 
 .tasks-list {
@@ -117,11 +109,7 @@ body {
     transform: rotateZ(0);
 }
 
-.list-item__input {
-    width: 226px;
-}
-
-@media (max-width:768px) {
+@media (max-width: 768px) {
     .header {
         text-align: center;
     }
