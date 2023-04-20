@@ -7,50 +7,50 @@
   </head>
   <body>
     <header class="header">
-      <img class="header-image" src="./eisenhower-matrix.jpg" alt="Eisenhower Matrix">
-      <a class="header-info" href="https://goal-life.com/page/method/matrix-eisenhower">Want more details?</a>
+      <img class="header__image" src="./eisenhower-matrix.jpg" alt="Eisenhower Matrix">
+      <a class="header__info" href="https://goal-life.com/page/method/matrix-eisenhower">Want more details?</a>
     </header>
     <main class="main">
-      <div class="task-row-wrapper">
-        <h3 class="title">Add Item</h3>
-        <div>
-          <input type="text" class="input task">
-          <button class="add-button button">Add</button>
+      <div class="task-row">
+        <h3 class="task-row__title title">Add Item</h3>
+        <div class="task-row__body">
+          <input class="task-row__input input" type="text">
+          <button class="task-row__add-button button">Add</button>
         </div>
       </div>
-      <div class="task-container incompleted">
-        <h3 class="title">Todo</h3>
-        <ul class="tasks-list incomplete-tasks">
-          <li class="task-list-item">
-            <input type="checkbox" class="complete-check">
-            <p class="task">Pay Bills</p>
-            <input type="text" class="input task">
-            <button class="edit-button button">Edit</button>
-            <button class="delete-button button">
-              <img class="delete-icon" src="./remove.svg" alt="">
+      <div class="incompleted">
+        <h3 class="incompleted__title title">Todo</h3>
+        <ul class="tasks-list">
+          <li class="list-item">
+            <input class="list-item__complete-check" type="checkbox">
+            <p class="list-item__task">Pay Bills</p>
+            <input class="list-item__input_disabled input" type="text">
+            <button class="list-item__edit-button button">Edit</button>
+            <button class="list-item__remove-button button">
+              <img class="list-item__remove-icon" src="./remove.svg" alt="">
             </button>
           </li>
-          <li class="task-list-item">
-            <input type="checkbox" class="complete-check">
-            <p class="task">Go Shopping</p>
-            <input type="text" value="Go Shopping" class="input task">
-            <button class="edit-button button">Edit</button>
-            <button class="delete-button button">
-              <img class="delete-icon" src="./remove.svg" alt="">
+          <li class="list-item">
+            <input class="list-item__complete-check" type="checkbox">
+            <p class="list-item__task">Go Shopping</p>
+            <input class="list-item__input_disabled input" type="text">
+            <button class="list-item__edit-button button">Edit</button>
+            <button class="list-item__remove-button button">
+              <img class="list-item__remove-icon" src="./remove.svg" alt="">
             </button>
           </li>
         </ul>
       </div>
-      <div class="task-container completed">
-        <h3 class="title">Completed</h3>
-        <ul class="tasks-list completed-tasks">
-            <li class="task-list-item">
-              <input type="checkbox" class="complete-check"checked>
-              <p class="task">See the Doctor</p>
-              <input type="text" class="input task">
-              <button class="edit-button button">Edit</button>
-              <button class="delete-button button">
-                <img class="delete-icon" src="./remove.svg" alt="">
+      <div class="completed">
+        <h3 class="completed__title title">Completed</h3>
+        <ul class="tasks-list">
+            <li class="list-item">
+              <input class="list-item__complete-check" type="checkbox" checked>
+              <p class="list-item__task">See the Doctor</p>
+              <input class="list-item__input_disabled input" type="text">
+              <button class="list-item__edit-button button">Edit</button>
+              <button class="list-item__remove-button button">
+                <img class="list-item__remove-icon" src="./remove.svg" alt="">
               </button>
             </li>
           </ul>
