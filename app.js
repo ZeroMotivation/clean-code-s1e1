@@ -3,39 +3,20 @@ const addButton = document.querySelector("task-row__add-button");
 const incompleteTaskHolder = document.querySelector("completed");
 const completedTasksHolder = document.querySelector("incompleted");
 
-let createNewTaskElement=function(taskString){
+const createNewTaskElement = function(taskString) {
+    const listItem = document.createElement("li");
+    listItem.classList.add("list-item");
+    listItem.innerHTML = `
+        <input class="list-item__complete-check" type="checkbox">
+        <p class="list-item__task">${taskString}</p>
+        <input class="list-item__input_disabled input" type="text">
+        <button class="list-item__edit-button button">Edit</button>
+        <button class="list-item__remove-button button">
+            <img class="list-item__remove-icon" src="./remove.svg" alt="">
+        </button>`
 
-    let listItem=document.createElement("li");
-    let checkBox=document.createElement("input")
-    let label=document.createElement("label");
-    let editInput=document.createElement("input");
-    let editButton=document.createElement("edit-button");
-    let deleteButton=document.createElement("delete-button");
-    let deleteButtonImg=document.createElement("delete-icon");
-
-    label.innerText=taskString;
-    label.className='task';
-
-    checkBox.type="checkbox";
-    editInput.type="text";
-    editInput.className="task";
-
-    editButton.innerText="Edit";
-    editButton.className="edit-button";
-
-    deleteButton.className="delete-button";
-    deleteButtonImg.src='./remove.svg';
-    deleteButton.appendChild(deleteButtonImg);
-
-    listItem.appendChild(checkBox);
-    listItem.appendChild(label);
-    listItem.appendChild(editInput);
-    listItem.appendChild(editButton);
-    listItem.appendChild(deleteButton);
     return listItem;
 }
-
-
 
 let addTask=function(){
     console.log("Add Task...");
@@ -48,7 +29,6 @@ let addTask=function(){
     taskInput.value="";
 
 }
-
 
 let editTask=function(){
     console.log("Edit Task...");
