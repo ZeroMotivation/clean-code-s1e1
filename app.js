@@ -1,8 +1,7 @@
-const taskInput = document.getElementById("new-task");
-const addButton = document.getElementsByTagName("button")[0];
-const incompleteTaskHolder = document.getElementById("incomplete-tasks");
-const completedTasksHolder = document.getElementById("completed-tasks");
-
+const taskInput = document.querySelector("task-row__input");
+const addButton = document.querySelector("task-row__add-button");
+const incompleteTaskHolder = document.querySelector("completed");
+const completedTasksHolder = document.querySelector("incompleted");
 
 let createNewTaskElement=function(taskString){
 
