@@ -3,7 +3,7 @@ const addButton = document.querySelector(".task-row__add-button");
 const incompleteTaskHolder = document.querySelector(".tasks-list_incompleted");
 const completedTasksHolder = document.querySelector(".tasks-list_completed");
 
-const createNewTaskElement = function(taskString) {
+const createNewTaskElement = (taskString) => {
     const listItem = document.createElement("li");
     listItem.classList.add("list-item");
     listItem.innerHTML = `
@@ -18,7 +18,7 @@ const createNewTaskElement = function(taskString) {
     return listItem;
 }
 
-const addTask = function() {
+const addTask = () => {
     if (!taskInput.value) return;
 
     const  listItem = createNewTaskElement(taskInput.value);
@@ -61,7 +61,7 @@ const toggleTask = function() {
     this.checked ? completedTasksHolder.appendChild(listItem) : incompleteTaskHolder.appendChild(listItem);
 }
 
-const bindTasksEvents = function(taskListItem) {
+const bindTasksEvents = (taskListItem) => {
     const editButton = taskListItem.querySelector(".list-item__edit-button");
     const deleteButton = taskListItem.querySelector(".list-item__remove-button");
     const checkBox = taskListItem.querySelector(".list-item__complete-check");
@@ -71,9 +71,7 @@ const bindTasksEvents = function(taskListItem) {
     checkBox.addEventListener("change", toggleTask);
 }
 
-const bindExistingTasksEvents = function(list) {
-    list.querySelectorAll(".list-item").forEach(item => bindTasksEvents(item));
-}
+const bindExistingTasksEvents = (list) => list.querySelectorAll(".list-item").forEach(item => bindTasksEvents(item));
 
 bindExistingTasksEvents(completedTasksHolder);
 bindExistingTasksEvents(incompleteTaskHolder);
