@@ -27,27 +27,22 @@ const addTask = () => {
     taskInput.value = "";
 }
 
-const editTask=function(){
-    console.log("Edit Task...");
-    console.log("Change 'edit' to 'save'");
+const editTask = function() {
+    const listItem = this.parentNode;
+    const editInput = listItem.querySelector(".input");
+    const task = listItem.querySelector(".list-item__task");
+    const containsClass = editInput.classList.contains("list-item__input_disabled");
 
-
-    let listItem=this.parentNode;
-
-    let editInput=listItem.querySelector('input[type=text]');
-    let label=listItem.querySelector("label");
-    let editBtn=listItem.querySelector(".edit-button");
-    let containsClass=listItem.classList.contains("editmode");
-
-    if(containsClass){
-        label.innerText=editInput.value;
-        editBtn.innerText="Edit";
-    }else{
-        editInput.value=label.innerText;
-        editBtn.innerText="Save";
+    if(containsClass) {
+        editInput.value = task.textContent;
+        task.textContent = "";
+        this.innerText = "Save";
     }
-
-    listItem.classList.toggle("editmode");
+    else {
+        task.textContent = editInput.value;
+        this.innerText = "Edit";
+    }
+    editInput.classList.toggle("list-item__input_disabled");
 }
 
 const deleteTask = function() {
