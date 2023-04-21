@@ -1,7 +1,7 @@
-const taskInput = document.querySelector("task-row__input");
-const addButton = document.querySelector("task-row__add-button");
-const incompleteTaskHolder = document.querySelector("completed");
-const completedTasksHolder = document.querySelector("incompleted");
+const taskInput = document.querySelector(".task-row__input");
+const addButton = document.querySelector(".task-row__add-button");
+const incompleteTaskHolder = document.querySelector(".tasks-list_incompleted");
+const completedTasksHolder = document.querySelector(".tasks-list_completed");
 
 const createNewTaskElement = function(taskString) {
     const listItem = document.createElement("li");
@@ -18,19 +18,17 @@ const createNewTaskElement = function(taskString) {
     return listItem;
 }
 
-let addTask=function(){
-    console.log("Add Task...");
-    if (!taskInput.value) return;
-    let listItem=createNewTaskElement(taskInput.value);
+const addTask=function() {
 
+    if (!taskInput.value) return;
+
+    const  listItem = createNewTaskElement(taskInput.value);
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
-
     taskInput.value="";
-
 }
 
-let editTask=function(){
+const editTask=function(){
     console.log("Edit Task...");
     console.log("Change 'edit' to 'save'");
 
@@ -53,7 +51,7 @@ let editTask=function(){
     listItem.classList.toggle("editmode");
 };
 
-let deleteTask=function(){
+const deleteTask=function(){
     console.log("Delete Task...");
 
     let listItem=this.parentNode;
@@ -63,7 +61,7 @@ let deleteTask=function(){
 }
 
 
-let taskCompleted=function(){
+const taskCompleted=function(){
     console.log("Complete Task...");
     let listItem=this.parentNode;
     completedTasksHolder.appendChild(listItem);
@@ -72,25 +70,16 @@ let taskCompleted=function(){
 }
 
 
-let taskIncomplete=function(){
+const taskIncomplete=function(){
     console.log("Incomplete Task...");
     let listItem=this.parentNode;
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
 }
 
-
-
-let ajaxRequest=function(){
-    console.log("AJAX Request");
-}
-
-addButton.onclick=addTask;
 addButton.addEventListener("click",addTask);
-addButton.addEventListener("click",ajaxRequest);
 
-
-let bindTaskEvents=function(taskListItem,checkBoxEventHandler){
+const bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     console.log("bind list item events");
     let checkBox=taskListItem.querySelector("input[type=checkbox]");
     let editButton=taskListItem.querySelector("edit-button");
@@ -101,10 +90,10 @@ let bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     checkBox.onchange=checkBoxEventHandler;
 }
 
-for (let i=0; i<incompleteTaskHolder.children.length;i++){
-    bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
+for (let i = 0; i < incompleteTaskHolder.children.length; i++){
+    bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
 }
 
-for (let i=0; i<completedTasksHolder.children.length;i++){
-    bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
+for (let i = 0; i < completedTasksHolder.children.length; i++){
+    bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }
