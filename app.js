@@ -22,8 +22,9 @@ const addTask = function() {
     if (!taskInput.value) return;
     const  listItem = createNewTaskElement(taskInput.value);
     incompleteTaskHolder.appendChild(listItem);
-    bindTaskEvents(listItem, taskCompleted);
-    taskInput.value="";
+    bindTaskEvents(listItem);
+    listItem.querySelector(".list-item__complete-check").addEventListener("change", toggleTask);
+    taskInput.value = "";
 }
 
 const editTask=function(){
@@ -47,46 +48,38 @@ const editTask=function(){
     }
 
     listItem.classList.toggle("editmode");
-};
+}
 
-const deleteTask=function(){
-    console.log("Delete Task...");
-    let listItem=this.parentNode;
-    let ul=listItem.parentNode;
+const deleteTask = function() {
+    const listItem = this.parentNode;
+    const ul = listItem.parentNode;
     ul.removeChild(listItem);
 }
 
-
-const taskCompleted=function(){
-    console.log("Complete Task...");
-    let listItem=this.parentNode;
-    completedTasksHolder.appendChild(listItem);
-    bindTaskEvents(listItem, taskIncomplete);
-}
-
-const taskIncomplete=function(){
-    console.log("Incomplete Task...");
-    let listItem=this.parentNode;
+const toggleTask = function() {
+    const listItem = this.parentNode;
+    if(this.checked) {
+        completedTasksHolder.appendChild(listItem);
+        return;
+    }
     incompleteTaskHolder.appendChild(listItem);
-    bindTaskEvents(listItem,taskCompleted);
 }
 
-addButton.addEventListener("click", addTask);
-
-const bindTaskEvents = function(taskListItem,checkBoxEventHandler){
-    const checkBox=taskListItem.querySelector(".list-item__complete-check");
-    const editButton=taskListItem.querySelector(".list-item__edit-button");
-    const deleteButton=taskListItem.querySelector(".list-item__remove-button");
+const bindTaskEvents = function(taskListItem) {
+    const editButton = taskListItem.querySelector(".list-item__edit-button");
+    const deleteButton = taskListItem.querySelector(".list-item__remove-button");
 
     editButton.addEventListener("click", editTask);
     deleteButton.addEventListener("click", deleteTask);
-    checkBox.addEventListener("onchange", checkBoxEventHandler);
 }
 
-for (let i = 0; i < incompleteTaskHolder.children.length; i++){
-    bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
-}
 
-for (let i = 0; i < completedTasksHolder.children.length; i++){
-    bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
-}
+// for (let i = 0; i < incompleteTaskHolder.children.length; i++){
+//     bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
+// }
+
+// for (let i = 0; i < completedTasksHolder.children.length; i++){
+//     bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
+// }
+
+addButton.addEventListener("click", addTask);
