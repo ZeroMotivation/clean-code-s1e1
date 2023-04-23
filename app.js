@@ -3,16 +3,16 @@ const addButton = document.querySelector(".task-row__add-button");
 const incompleteTaskHolder = document.querySelector(".tasks-list_incompleted");
 const completedTasksHolder = document.querySelector(".tasks-list_completed");
 
-const createNewTaskElement = (taskString) => {
+const createNewTaskElement = (task) => {
     const listItem = document.createElement("li");
     listItem.classList.add("list-item");
     listItem.innerHTML = `
         <input class="list-item__complete-check" type="checkbox">
-        <p class="list-item__task">${taskString}</p>
+        <p class="list-item__task">${task}</p>
         <input class="list-item__input_disabled input" type="text">
         <button class="list-item__edit-button button">Edit</button>
         <button class="list-item__remove-button button">
-            <img class="list-item__remove-icon" src="./remove.svg" alt="">
+            <img class="list-item__remove-icon" src="./remove.svg" alt="Remove task from list">
         </button>`
 
     return listItem;
@@ -53,7 +53,13 @@ const deleteTask = function() {
 
 const toggleTask = function() {
     const listItem = this.parentNode;
-    this.checked ? completedTasksHolder.appendChild(listItem) : incompleteTaskHolder.appendChild(listItem);
+    if(this.checked) {
+        completedTasksHolder.appendChild(listItem);
+    }
+    else {
+        incompleteTaskHolder.appendChild(listItem);
+    }
+    this.nextElementSibling.classList.toggle('complete');
 }
 
 const bindTasksEvents = (taskListItem) => {

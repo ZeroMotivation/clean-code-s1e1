@@ -18,7 +18,7 @@
           <button class="task-row__add-button button">Add</button>
         </div>
       </div>
-      <div class="incompleted">
+      <section class="incompleted">
         <h3 class="incompleted__title title">Todo</h3>
         <ul class="tasks-list tasks-list_incompleted">
           <li class="list-item">
@@ -27,7 +27,7 @@
             <input class="list-item__input_disabled input" type="text">
             <button class="list-item__edit-button button">Edit</button>
             <button class="list-item__remove-button button">
-              <img class="list-item__remove-icon" src="./remove.svg" alt="">
+              <img class="list-item__remove-icon" src="./remove.svg" alt="Remove task from list">
             </button>
           </li>
           <li class="list-item">
@@ -36,25 +36,25 @@
             <input class="list-item__input_disabled input" type="text">
             <button class="list-item__edit-button button">Edit</button>
             <button class="list-item__remove-button button">
+              <img class="list-item__remove-icon" src="./remove.svg" alt="Remove task from list">
+            </button>
+          </li>
+        </ul>
+      </section>
+      <section class="completed">
+        <h3 class="completed__title title">Completed</h3>
+        <ul class="tasks-list tasks-list_completed">
+          <li class="list-item">
+            <input class="list-item__complete-check" type="checkbox" checked>
+            <p class="list-item__task complete">See the Doctor</p>
+            <input class="list-item__input_disabled input" type="text">
+            <button class="list-item__edit-button button">Edit</button>
+            <button class="list-item__remove-button button">
               <img class="list-item__remove-icon" src="./remove.svg" alt="">
             </button>
           </li>
         </ul>
-      </div>
-      <div class="completed">
-        <h3 class="completed__title title">Completed</h3>
-        <ul class="tasks-list tasks-list_completed">
-            <li class="list-item">
-              <input class="list-item__complete-check" type="checkbox" checked>
-              <p class="list-item__task">See the Doctor</p>
-              <input class="list-item__input_disabled input" type="text">
-              <button class="list-item__edit-button button">Edit</button>
-              <button class="list-item__remove-button button">
-                <img class="list-item__remove-icon" src="./remove.svg" alt="">
-              </button>
-            </li>
-          </ul>
-      </div>
+      </section>
     </main>
     <script src="app.js"></script>
   </body>
